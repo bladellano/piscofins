@@ -5,6 +5,7 @@ class EfdPiscofins{
 	public $cnpj;
 	public $origem;
 	public $destino;
+	private $aCodigos = array("0140","0150","0190","0200","A100","A170");
 
 	function __construct($cnpj,$origem,$destino){
 		$this->cnpj    = $cnpj;
@@ -37,7 +38,7 @@ class EfdPiscofins{
 		foreach ($data as $key => $value) {
 			$row =  explode("|",$value);
 			array_shift($row);
-			if($row[0] == "0140" || $row[0] == "0150" || $row[0] == "0190" || $row[0] == "0200" || $row[0] == "A100" || $row[0] == "A170"){
+			if(in_array($row[0], $this->aCodigos)){
 				$arrayFiltrado[] = $row;
 			}
 		}
