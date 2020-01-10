@@ -20,7 +20,7 @@ class EfdPiscofins{
 	public function arquivoParaArray($str){
 		$file = fopen($str, "r");
 		$newArray = array();
-		while ($getRowCsv = fgetcsv($file, 10000, "\t")) {	
+		while ($getRowCsv = fgetcsv($file, 10000, "\n")) {	
 			$newArray[] = $getRowCsv[0];
 		}	
 		fclose($file);	
